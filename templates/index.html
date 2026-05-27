@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic Algorithm Data Manager</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; background-color: #f9f9f9; }
+        .dashboard { display: flex; gap: 30px; margin-bottom: 25px; }
+        .control-panel { border: 2px solid #333; padding: 20px; background: #fff; width: 45%; border-radius: 6px; }
+        .form-section { border: 1px dashed #777; padding: 15px; margin-bottom: 25px; background: #f0f4f8; border-radius: 6px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; background: #fff; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #333; color: white; }
+        .no-data { color: red; font-weight: bold; font-size: 1.2em; text-align: center; padding: 20px; }
+        button { background-color: #007BFF; color: white; border: none; padding: 8px 15px; cursor: pointer; border-radius: 4px; }
+        button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+
+    <h2> Project Dashboard - Data Custom Sorcerer</h2>
+
+    <div class="form-section">
+        <h3>Capture New Record (5 Data Types)</h3>
+        <form action="/add" method="POST" style="display: flex; gap: 15px; align-items: center; flex-wrap: wrap;">
+            <input type="text" name="item_name" placeholder="Item Name (String)" required>
+            <input type="number" step="0.01" name="price" placeholder="Price (Float)" required>
+            <input type="date" name="date_received" required>
+            <select name="is_fragile">
+                <option value="false">Not Fragile (False)</option>
+                <option value="true">Fragile (True)</option>
+            </select>
+            <button type="submit">Save Record</button>
+        </form>
+    </div>
+
+    <div class="dashboard">
+        
+        <div class="control-panel">
+            <h3>Choose a Sorting Algorithm</h3>
+            <form method="POST">
+                <select name="sort_algo" style="width: 100%; padding: 5px;">
+                    <option value="bubble">Bubble Sort</option>
+                    <option value="selection">Selection Sort</option>
+                </select>
+                <p><strong>Choose Column to Sort By:</strong></p>
+                <select name="sort_column" style="width: 100%; padding: 5px;">
+                    <option value="id">ID (Integer)</option>
+                    <option value="item_name">Item Name (String)</option>
+                    <option value="price">Price (Float)</option>
+                    <option value="date_received">Date Received (Date)</option>
+                    <option value="is_fragile">Is Fragile (Boolean)</option>
+                </select>
+                <p><strong>Sort order:</strong></p>
+                <input type="radio" name="sort_order" value="asc" checked> Ascending <br>
+                <input type="radio" name="sort_order" value="desc"> Descending <br><br>
+                <button type="submit" name="sort_submit">Sort</button>
+            </form>
+        </div>
+
+        <div class="control-panel">
+            <h3>Choose a Searching Algorithm</h3>
+            <form method="POST">
+                <select name="search_algo" style="width: 100%; padding: 5px; margin-bottom: 15px;">
+                    <option value="linear">Linear Search</option>
+                </select>
+                <p><strong>Select Field to Target:</strong></p>
+                <select name="search_column" style="width: 100%; padding: 5px; margin-bottom: 15px;">
+                    <option value="item_name">Item Name</option>
+                    <option value="price">Price</option>
+                    <option value="date_received">Date Received</option>
+                </select>
+                <p><strong>Click here to enter text:</strong></p>
+                <input type="text" name="search_term" placeholder="Type search word..." style="width: 95%; padding: 5px;" required>
+                <br><br>
+                <button type="submit" name="search_submit">Search</button>
+            </form>
+        </div>
+        
+    </div>
+
+    <hr>
+
+    <h3>Database Output Table</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Item Name</th>
+                    <th>Price</th>
+                    <th>Date Received</th>
+                    <th>Is Fragile</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+
+        <div class="no-data">no data</div
+
+</body>
+</html>
