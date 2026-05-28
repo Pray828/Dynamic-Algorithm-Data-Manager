@@ -84,4 +84,6 @@ def add_record():
     # 4. Refresh the home page to display the newly added record instantly
     return redirect(url_for('index'))
 if __name__ == '__main__':
-    app.run(debug=True)
+    #Configured to accept production networking routing 
+    app.run(host='0.0.0.0',port=50000)
+    
